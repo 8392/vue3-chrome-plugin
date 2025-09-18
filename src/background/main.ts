@@ -50,6 +50,11 @@ browser.tabs.onActivated.addListener(async ({ tabId }) => {
   sendMessage('tab-prev', { title: tab.title }, { context: 'content-script', tabId })
 })
 
+// 点击插件图标打开 Options 页面
+// browser.action.onClicked.addListener(() => {
+//   browser.runtime.openOptionsPage().catch(err => console.error(err))
+// })
+
 onMessage('get-current-tab', async () => {
   try {
     const tab = await browser.tabs.get(previousTabId)
